@@ -8,7 +8,72 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="text-center">Welcome to my bank</h1>
+    <div id="submitArea">
+        <h1 class="text-center">Welcome to my bank</h1>
+        <div id="login-area">
+            <h3>Login</h3>
+            <input type="text" class="form-control" placeholder="Email"><br>
+            <input type="password" class="form-control" placeholder="password"><br>
+            <button class="btn btn-success" id="login-button">Enter</button>
+        </div>
+    </div>
+
+    <div id="transactionArea">
+        <h1 class="text-center">Transaction Area</h1><br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="deposit status">
+                <h5>Deposite</h5>
+                <h2>$00</h6>
+            </div>
+        </div>
+            <div class="col-md-4">
+                <div class="withdraw status">
+                <h5>Withdraw</h5>
+                <h2>$00</h6>
+            </div>
+        </div>
+            <div class="col-md-4">
+                <div class="balance status">
+                <h5>Balance</h5>
+                <h2>$1500</h6>
+            </div>
+        </div>
+        </div>
+
+        <div class="depositeArea">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="depositeAmount box">
+                    <h2>deposit</h2><br>
+                    <input type="text" placeholder="$Enter your deposit amount!"><br>
+                    <button class="btn btn-success">Deposit</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="withdrawAmount box">
+                    <h2>Withdraw</h2><br>
+                    <input type="text" placeholder="$Enter your withdraw amount!"><br>
+                    <button class="btn btn-warning">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <script>
+        const loginButton = document.getElementById('login-button');
+        loginButton.addEventListener("click",function(){
+            const submitArea = document.getElementById('submitArea');
+            submitArea.style.display = 'none';
+            const transactionArea = document.getElementById('transactionArea');
+            transactionArea.style.display = 'block'
+        })
+
+    </script>
+    
     
 </body>
 </html>

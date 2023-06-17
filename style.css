@@ -1,3 +1,53 @@
 body{
     padding: 100px;
 }
+#login-area{
+    margin: 50px;
+    padding: 40px;
+    border: solid white;
+    box-shadow: 5px 5px 10px grey;
+    border-radius: 20px;
+    /* display: inline-block; */
+}
+
+#transactionArea{
+    display: none;
+}
+.status{
+    color: white;
+    margin: 0px 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px grey;
+}
+
+.deposit{
+    background-color: slateblue;
+}
+.status h5{
+    text-decoration: underline;
+}
+.withdraw{
+    background-color: salmon;
+}
+.balance{
+    background-color: orange;
+}
+.row{
+    margin: 20px 0px;
+}
+.depositeAmount{
+    background-color: white;
+}
+.withdrawAmount{
+    background-color: white;
+}
+.box{
+    margin: 20px 0px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgb(112, 112, 112);
+}
+.box button{
+    margin-top: 5px;
+}
