@@ -15,7 +15,7 @@ body{
 }
 .status{
     color: white;
-    margin: 0px 20px;
+    margin: 10px 20px;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 5px 5px 10px grey;
@@ -31,10 +31,10 @@ body{
     background-color: salmon;
 }
 .balance{
-    background-color: orange;
+    background-color: teal;
 }
 .row{
-    margin: 20px 0px;
+    margin: 30px 0px;
 }
 .depositeAmount{
     background-color: white;
@@ -43,7 +43,7 @@ body{
     background-color: white;
 }
 .box{
-    margin: 20px 0px;
+    margin: 20px 10px;
     padding: 40px;
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgb(112, 112, 112);

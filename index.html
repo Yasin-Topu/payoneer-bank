@@ -23,20 +23,20 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="deposit status">
-                <h5>Deposite</h5>
-                <h2>$00</h6>
+                <h5>Deposit</h5>
+                <h2>$ <span id="currentDeposit">00</span></h6>
             </div>
         </div>
             <div class="col-md-4">
                 <div class="withdraw status">
                 <h5>Withdraw</h5>
-                <h2>$00</h6>
+                <h2>$ <span id="currentWithdraw">00</span></h6>
             </div>
         </div>
             <div class="col-md-4">
                 <div class="balance status">
                 <h5>Balance</h5>
-                <h2>$1500</h6>
+                <h2>$ <span id="currentBalance">1500</span></h6>
             </div>
         </div>
         </div>
@@ -46,15 +46,15 @@
                 <div class="col-md-6">
                     <div class="depositeAmount box">
                     <h2>deposit</h2><br>
-                    <input type="text" placeholder="$Enter your deposit amount!"><br>
-                    <button class="btn btn-success">Deposit</button>
+                    <input type="text" id="depositValue" class="form-control" placeholder="$Enter your deposit amount!"><br>
+                    <button class="btn btn-success" id="depositButton">Deposit</button>
                 </div>
                 </div>
                 <div class="col-md-6">
                     <div class="withdrawAmount box">
                     <h2>Withdraw</h2><br>
-                    <input type="text" placeholder="$Enter your withdraw amount!"><br>
-                    <button class="btn btn-warning">Withdraw</button>
+                    <input type="text" class="form-control" id="withdrawValue" placeholder="$Enter your withdraw amount!"><br>
+                    <button class="btn btn-warning" id="withdrawButton">Withdraw</button>
                 </div>
             </div>
         </div>
@@ -64,6 +64,7 @@
     
 
     <script>
+        //login event handle
         const loginButton = document.getElementById('login-button');
         loginButton.addEventListener("click",function(){
             const submitArea = document.getElementById('submitArea');
@@ -71,6 +72,70 @@
             const transactionArea = document.getElementById('transactionArea');
             transactionArea.style.display = 'block'
         })
+
+        //deposit button handler
+
+        const depositButton = document.getElementById('depositButton');
+        depositButton.addEventListener("click",function(){
+            const depositValue = document.getElementById('depositValue').value;            
+            const depositNumber = parseFloat(depositValue);
+            if(depositNumber<0){
+            alert("Enter the valid amount");
+            document.getElementById('depositValue').value = "";
+           }
+            //console.log(depositNumber + 100);
+            //adding deposit value to deposit box
+            else{
+           const currentDeposit = document.getElementById('currentDeposit').innerText;
+           const currentDepositNumber = parseFloat(currentDeposit);
+           const totalDeposit = depositNumber + currentDepositNumber;
+           //console.log(totalDeposit);
+           document.getElementById('currentDeposit').innerText = totalDeposit;
+           document.getElementById('depositValue').value = "";
+
+           //adding balance
+           const currentBalance = document.getElementById('currentBalance').innerText;
+           const currentBalanceNumber = parseFloat(currentBalance);
+           const totalBalance = depositNumber + currentBalanceNumber;
+           //console.log(totalBalance);
+           document.getElementById('currentBalance').innerText = totalBalance;
+            }
+        })
+
+        //withdraw button listener
+        const withdrawButton = document.getElementById('withdrawButton');
+        withdrawButton.addEventListener("click",function(){
+           const withdrawValue = document.getElementById('withdrawValue').value;
+           //console.log(withdrawValue);
+           const withdrawNumber = parseFloat(withdrawValue);
+           if(withdrawNumber<0){
+            alert("Enter the valid amount");
+            document.getElementById('withdrawValue').value = "";
+           }
+        //    else if(withdrawNumber>currentBalance){
+        //     alert("You don't have enough money to withdraw!");
+        //    }
+           //console.log(withdrawNumber);
+           else{
+           const currentWithdraw = document.getElementById('currentWithdraw').innerText;
+           const currentWithdrawNumber = parseFloat(currentWithdraw);
+           
+           const totalWithdraw = withdrawNumber + currentWithdrawNumber;
+           document.getElementById('currentWithdraw').innerText = totalWithdraw;
+           document.getElementById('withdrawValue').value = "";
+
+           //subtract balance
+           const currentBalance = document.getElementById('currentBalance').innerText;
+           const currentBalanceNumber = parseFloat(currentBalance);
+           const totalBalance = currentBalanceNumber - withdrawNumber;
+           //console.log(totalBalance);
+           document.getElementById('currentBalance').innerText = totalBalance;
+           }
+
+           
+        })
+
+
 
     </script>
     
